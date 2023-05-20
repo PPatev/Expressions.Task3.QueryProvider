@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Expressions.Task3.E3SQueryProvider.Helpers;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,8 +10,8 @@ namespace Expressions.Task3.E3SQueryProvider
 {
     public class ExpressionToFtsRequestTranslator : ExpressionVisitor
     {
-        readonly StringBuilder _resultStringBuilder;
-        List<string> queries = new List<string>();
+        private readonly StringBuilder _resultStringBuilder;
+        private IList<string> queries = new List<string>();
 
         public ExpressionToFtsRequestTranslator()
         {
@@ -112,6 +114,9 @@ namespace Expressions.Task3.E3SQueryProvider
                     var secondQuery = _resultStringBuilder.ToString();
                     queries.Add(secondQuery);
                     _resultStringBuilder.Remove(0, secondQuery.Length);
+
+                    _resultStringBuilder.Append(RequestGeneratorHelper.GenerateFtsQueryRequestString(queries));
+                    queries.Clear();
 
                     break;
                 
