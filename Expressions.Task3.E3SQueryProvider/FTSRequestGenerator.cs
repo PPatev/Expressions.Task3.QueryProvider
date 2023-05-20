@@ -1,12 +1,8 @@
 ﻿using Expressions.Task3.E3SQueryProvider.Attributes;
 using Expressions.Task3.E3SQueryProvider.Helpers;
-using Expressions.Task3.E3SQueryProvider.Models.Request;
 using Microsoft.AspNetCore.WebUtilities;
-using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Expressions.Task3.E3SQueryProvider
 {
@@ -51,8 +47,6 @@ namespace Expressions.Task3.E3SQueryProvider
 
             return uri;
         }
-
-       
 
         #endregion
 

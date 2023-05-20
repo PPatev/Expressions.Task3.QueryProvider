@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expressions.Task3.E3SQueryProvider.Test", "Expressions.Task3.E3SQueryProvider.Test\Expressions.Task3.E3SQueryProvider.Test.csproj", "{EF141F13-6920-42EA-87CD-C510F5CE1836}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expressions.Task3.E3SQueryProvider", "Expressions.Task3.E3SQueryProvider\Expressions.Task3.E3SQueryProvider.csproj", "{BDDFA5E9-8D68-4FD5-B150-178A6571E119}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{811332E1-DB8E-45C3-BB74-05DB37A17126}"
+	ProjectSection(SolutionItems) = preProject
+		Theory.txt = Theory.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

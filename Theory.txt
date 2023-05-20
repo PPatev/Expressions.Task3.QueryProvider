@@ -1,0 +1,14 @@
+What is the difference between IQueryable and IEnumerable interfaces? Provide some examples. 
+IEnumerable<T> interface consists of a set of extension methods like Where(), Select(), First(), Count(), 
+which ultimately gives the developer the ability to consistently write queries for collection of objects in memory (LINQ to Objects)
+To implement LINQ providers to data external to the application, the IQueryable<T> interface (an inheritor of IEnumerable<T>) is used along with 
+a set of extension methods that are almost identical to those written for IEnumerable<T>. IQueryable<T> interface inherits from IEnumerable<T>.
+
+Describe IQueryProvider interface. What is it used for? 
+IQueryProvider is an interface that defines methods to create and execute queries that are described by an System.Linq.IQueryable.
+This is specialized software that can interpret a query, so that it efficiently utilizes the underlying resources.
+
+Analyze the task you worked on related to IQueryable topic. What is the role of Expressions for IQueryProvider? 
+E3SLinqProvider is a custom IQueryProvider which creates custom IQueryable<T> (E3SQuery<T>). E3SLinqProvider also executes the custom query by
+firstly calling ExpressionToFtsRequestTranslator which translats the expression provided to the custom query to the specifyied custom format. Next 
+E3SLinqProvider calls E3SSearchService (custom http client) and provides it with translated query.
