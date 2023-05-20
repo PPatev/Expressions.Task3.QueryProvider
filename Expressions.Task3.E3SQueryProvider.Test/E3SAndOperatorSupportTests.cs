@@ -34,6 +34,7 @@ namespace Expressions.Task3.E3SQueryProvider.Test
               ],
              */
 
+            var result = translator.Translate(expression);
             // todo: create asserts for this test by yourself, because they will depend on your final implementation
             throw new NotImplementedException("Please implement this test and the appropriate functionality");
         }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Expressions.Task3.E3SQueryProvider
 {
@@ -40,6 +41,29 @@ namespace Expressions.Task3.E3SQueryProvider
                         Query = query
                     }
                 },
+                Start = start,
+                Limit = limit
+            };
+
+            var ftsQueryRequestString = JsonConvert.SerializeObject(ftsQueryRequest);
+
+            var uri = BindByName($"{_baseAddress}{_FTSSearchTemplate}",
+                new Dictionary<string, string>()
+                {
+                    { "metaType", metaTypeName },
+                    { "query", ftsQueryRequestString }
+                });
+
+            return uri;
+        }
+
+        public Uri GenerateRequestUrl(Type type, List<string> queries, int start = 0, int limit = 10)
+        {
+            string metaTypeName = GetMetaTypeName(type);
+
+            var ftsQueryRequest = new FtsQueryRequest
+            {
+                Statements = queries.Select(x => new Statement { Query = x}).ToList(),
                 Start = start,
                 Limit = limit
             };
